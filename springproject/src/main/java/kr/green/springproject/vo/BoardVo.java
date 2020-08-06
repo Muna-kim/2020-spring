@@ -1,8 +1,11 @@
 package kr.green.springproject.vo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BoardVo {
 	private int num;
-	private String registerDate;
+	private Date registerDate;
 	private String title;
 	private String content;
 	private String writer;
@@ -31,9 +34,12 @@ public class BoardVo {
 		this.num = num;
 	}
 	public String getRegisterDate() {
-		return registerDate;
+		SimpleDateFormat transFormat = 
+				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String to = transFormat.format(registerDate);
+		return to;
 	}
-	public void setRegisterDate(String registerDate) {
+	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
 	}
 	public String getTitle() {

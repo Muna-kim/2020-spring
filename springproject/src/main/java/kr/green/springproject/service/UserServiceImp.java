@@ -3,6 +3,7 @@ package kr.green.springproject.service;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.springproject.dao.UserDao;
@@ -14,8 +15,13 @@ public class UserServiceImp implements UserService {
 	@Autowired
 	UserDao userDao;
 	
+	@Autowired
+	 BCryptPasswordEncoder passwordEncoder;
+	
 	@Override
 	public void userSignup(UserVo userVo) {
+		String encPw = passwordEncoder.encode(userVo.getPw());
+		userVo.setPw(encPw);
 		userDao.userSignup(userVo);
 		
 	}

@@ -24,7 +24,7 @@ public class HomeController {
 	
 	@Autowired
 		UserService userService;
-
+	
 
 	@RequestMapping(value= "/", method=RequestMethod.GET)
 	public ModelAndView openTilesView(ModelAndView mv) throws Exception{

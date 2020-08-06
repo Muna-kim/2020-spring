@@ -30,6 +30,7 @@ public class BoardController {
 	 @Autowired
 	 	UserService userService;
 	 
+	 
 	 @RequestMapping(value= "/board/list" , method=RequestMethod.GET)
 	 public ModelAndView boardListGet(ModelAndView mv) {
 		 mv.setViewName("/board/list");
